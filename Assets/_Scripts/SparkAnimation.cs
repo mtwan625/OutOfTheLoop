@@ -8,8 +8,6 @@ public class SparkAnimation : MonoBehaviour
     Rigidbody rb1;
     Rigidbody rb2;
 
-    ParticleSystem particleSystem;
-
     void Start()
     {
         HingeJoint joint = GetComponent<HingeJoint>();
@@ -36,6 +34,7 @@ public class SparkAnimation : MonoBehaviour
         flip = Instantiate(SparkParticlePrefab, rb2.transform);
         flip.transform.localRotation = Quaternion.Euler(-90, 0, 0);
 
-        particleSystem = flip.GetComponent<ParticleSystem>();
+        rb1.AddExplosionForce(0.01f, new Vector3(0,0,0), 5.0f);
+        rb2.AddExplosionForce(0.01f, new Vector3(0, 0, 0), 5.0f);
     }
 }
