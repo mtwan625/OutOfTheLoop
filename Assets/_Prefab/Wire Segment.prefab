@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 4659425902642306790}
   - component: {fileID: 4659425902642306791}
   - component: {fileID: 4659425902642306792}
+  - component: {fileID: 3426674290117795635}
+  - component: {fileID: -3384280796707073497}
   m_Layer: 0
   m_Name: Wire Segment
-  m_TagString: Untagged
+  m_TagString: Wire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 418d2464d23076742b0b56dc67dd1db4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,10 +91,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4659425902642306794}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4659425902642306791
 Rigidbody:
@@ -145,3 +147,29 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &3426674290117795635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659425902642306794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a000adb274f76245bfccf42f1a84849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SparkParticlePrefab: {fileID: 855119613638802490, guid: 7c580c0ebe16988418baf1aca5e23351,
+    type: 3}
+--- !u!114 &-3384280796707073497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659425902642306794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee163963877f7a74098f3b34c976b1aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -41,6 +41,7 @@ public class GenerateWire : MonoBehaviour
             renderer.positionCount = 2;
             renderer.material = wireMaterial;
             renderer.widthMultiplier = thickness;
+            renderer.generateLightingData = true;
             joint.connectedBody = previousRB;
             previousRB = segment.GetComponent<Rigidbody>();
         }
