@@ -15,15 +15,10 @@ public class WireTrigger : MonoBehaviour
             SparkAnimation spark = GetComponent<SparkAnimation>();
             spark.PlayAnimation();
 
-            // send signal to collider
-            if (transform.parent.GetComponent<InvisibleMaskObject>() != null && transform.parent.GetComponent<InvisibleMaskObject>().enabled)
-            {
-                // wire is fake
-            }
-            else
-            {
-                // wire is real
-            }
+            // send signal to manager
+            bool isFake = transform.parent.GetComponent<InvisibleMaskObject>() != null && transform.parent.GetComponent<InvisibleMaskObject>().enabled;
+            // Debug.Log("is wire cut fake? " + isFake);
+            WireManager.ManageCutWire(isFake, gameObject);
 
             // destroy this object
             Destroy(gameObject);
