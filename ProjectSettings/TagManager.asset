@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wire
   - Cutter
+  - Key
   layers:
   - Default
   - TransparentFX
