@@ -11,6 +11,7 @@ public class KeypadManagement : MonoBehaviour
     public Material selected_material;
     private Material old_material;
     private Transform _selection;
+    public GameObject selector;
 
     public float delay = 1.0f;
     public float delay_temp;
@@ -32,10 +33,13 @@ public class KeypadManagement : MonoBehaviour
                 selectionRenderer.material = old_material;
             _selection = null;
         }
-        
+
         // raycast to detect selection
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        ///Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
+        Ray ray = new Ray(selector.transform.position, selector.transform.forward);
         RaycastHit hit;
+        Debug.DrawRay(selector.transform.position, selector.transform.forward * 10, Color.green);
 
         if (Physics.Raycast(ray, out hit) && current_password.Length < password.Length)
         {
@@ -49,8 +53,9 @@ public class KeypadManagement : MonoBehaviour
                     old_material = selectionRenderer.material;
                     selectionRenderer.material = selected_material;
                 }
-                   
-                if(Input.GetMouseButtonDown(0))
+
+                //if(Input.GetMouseButtonDown(0))
+                if(OVRInput.GetDown(OVRInput.Button.One))
                 {
                     GameObject key = _selection.gameObject;
                     KeypadInput input = key.GetComponent<KeypadInput>();
