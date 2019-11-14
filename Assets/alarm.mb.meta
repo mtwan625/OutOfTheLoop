@@ -1,9 +1,21 @@
 fileFormatVersion: 2
-guid: 4022692bb71ce9f47a7a31e7370fb849
+guid: c07108362f596e543ae5e39e8f17b616
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    2186277476908879412: ImportLogs
+    100000: //RootNode
+    100002: base
+    100004: dome
+    400000: //RootNode
+    400002: base
+    400004: dome
+    2100000: lambert1
+    2300000: base
+    2300002: dome
+    3300000: base
+    3300002: dome
+    4300000: base
+    4300002: dome
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -32,7 +44,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
