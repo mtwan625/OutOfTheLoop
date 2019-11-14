@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class WireManager : MonoBehaviour
 {
-    public static int numberOfCorrectWires = 3;
+    public int numberOfCorrectWires = 3;
+    static int wireCount;
     static List<GameObject> correctWires;
 
     void Start()
     {
         correctWires = new List<GameObject>();
+        wireCount = numberOfCorrectWires;
     }
 
     public static void ManageCutWire(bool isFake, GameObject wire)
@@ -19,7 +21,7 @@ public class WireManager : MonoBehaviour
             if (!correctWires.Contains(wire))
             {
                 correctWires.Add(wire);
-                if (correctWires.Count == numberOfCorrectWires)
+                if (correctWires.Count == wireCount)
                 {
                     Debug.Log("Wire-cutting puzzle complete");
                 }

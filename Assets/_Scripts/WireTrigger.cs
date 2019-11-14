@@ -18,7 +18,7 @@ public class WireTrigger : MonoBehaviour
             // send signal to manager
             bool isFake = transform.parent.GetComponent<InvisibleMaskObject>() != null && transform.parent.GetComponent<InvisibleMaskObject>().enabled;
             // Debug.Log("is wire cut fake? " + isFake);
-            WireManager.ManageCutWire(isFake, gameObject);
+            WireManager.ManageCutWire(isFake, transform.parent.gameObject);
 
             // destroy this object
             Destroy(gameObject);
