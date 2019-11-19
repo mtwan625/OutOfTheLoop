@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlarmManagerScript : MonoBehaviour
+public class AlarmManager : MonoBehaviour
 {
-    bool alarm1On = false;
-    bool alarm2On = false;
-    bool alarm3On = false;
     int nextAlarm = 1;
+
+    public Material offMaterial;
+    public Material onMaterial;
 
     public GameObject alarm1;
     public GameObject alarm2;
@@ -16,46 +16,32 @@ public class AlarmManagerScript : MonoBehaviour
     Material on;
     Material off;
 
-    // Start is called before the first frame update
     void Start()
     {
-        alarm1On = false;
-    	alarm2On = false;
-    	alarm3On = false;
     	nextAlarm = 1;
+        on = onMaterial;
+        off = offMaterial;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void triggerAlarm() {
+    public void triggerAlarm() {
     	switch (nextAlarm) {
     		case 1:
-    			alarm1On = true;
     			alarm1.GetComponent<Renderer>().material = on;
     			break;
     		case 2:
-    			alarm2On = true;
     			alarm2.GetComponent<Renderer>().material = on;
     			break;
     		case 3:
-    			alarm3On = true;
     			alarm3.GetComponent<Renderer>().material = on;
+                // end game
     			break;
     		default:
     			break;
     	}
     	nextAlarm++;
-    	// if (alarm1On && alarm2On && alarm3On) { play alarm sound? }
     }
 
-    void disableAlarms() {
-    	alarm1On = false;
-    	alarm2On = false;
-    	alarm3On = false;
+    public void disableAlarms() {
     	alarm1.GetComponent<Renderer>().material = off;
     	alarm2.GetComponent<Renderer>().material = off;
     	alarm3.GetComponent<Renderer>().material = off;
