@@ -8,10 +8,13 @@ public class WireManager : MonoBehaviour
     static int wireCount;
     static List<GameObject> correctWires;
 
+    static AlarmManager alarmManager;
+
     void Start()
     {
         correctWires = new List<GameObject>();
         wireCount = numberOfCorrectWires;
+        alarmManager = GetComponent<AlarmManager>();
     }
 
     public static void ManageCutWire(bool isFake, GameObject wire)
@@ -24,12 +27,14 @@ public class WireManager : MonoBehaviour
                 if (correctWires.Count == wireCount)
                 {
                     Debug.Log("Wire-cutting puzzle complete");
+                    alarmManager.disableAlarms();
                 }
             }
         }
         else
         {
-            Debug.Log("Wrong wire cut");
+            // Debug.Log("Wrong wire cut");
+            alarmManager.triggerAlarm();
         }
     }
 }

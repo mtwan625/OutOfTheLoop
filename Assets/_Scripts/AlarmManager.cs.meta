@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 497c0ba6669e4f0428a14afb4b3dc46b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - alarm1: {fileID: 80759063391404636, guid: 7f1e1ec12724ebc4290e642a869c145c, type: 3}
+  - alarm2: {fileID: 80759063391404636, guid: 7f1e1ec12724ebc4290e642a869c145c, type: 3}
+  - alarm3: {fileID: 80759063391404636, guid: 7f1e1ec12724ebc4290e642a869c145c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
