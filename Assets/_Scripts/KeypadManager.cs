@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KeypadManagement : MonoBehaviour
+public class KeypadManager : MonoBehaviour
 {
     public string password = "";
     public string current_password = "";
