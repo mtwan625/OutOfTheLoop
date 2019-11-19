@@ -7,18 +7,24 @@ public class WireManager : MonoBehaviour
     public int numberOfCorrectWires = 3;
     static int wireCount;
     static List<GameObject> correctWires;
+    static List<GameObject> wiresCut;
 
     static AlarmManager alarmManager;
 
     void Start()
     {
         correctWires = new List<GameObject>();
+        wiresCut = new List<GameObject>();
         wireCount = numberOfCorrectWires;
         alarmManager = GetComponent<AlarmManager>();
     }
 
     public static void ManageCutWire(bool isFake, GameObject wire)
     {
+        if (wiresCut.Contains(wire))
+            return;
+        wiresCut.Add(wire);
+
         if (!isFake)
         {
             if (!correctWires.Contains(wire))

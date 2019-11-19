@@ -26,13 +26,13 @@ public class AlarmManager : MonoBehaviour
     public void triggerAlarm() {
     	switch (nextAlarm) {
     		case 1:
-    			alarm1.GetComponent<Renderer>().material = on;
+    			alarm1.transform.GetChild(1).GetComponent<Renderer>().material = on;
     			break;
     		case 2:
-    			alarm2.GetComponent<Renderer>().material = on;
+    			alarm2.transform.GetChild(1).GetComponent<Renderer>().material = on;
     			break;
     		case 3:
-    			alarm3.GetComponent<Renderer>().material = on;
+    			alarm3.transform.GetChild(1).GetComponent<Renderer>().material = on;
                 // end game
     			break;
     		default:
@@ -42,9 +42,9 @@ public class AlarmManager : MonoBehaviour
     }
 
     public void disableAlarms() {
-    	alarm1.GetComponent<Renderer>().material = off;
-    	alarm2.GetComponent<Renderer>().material = off;
-    	alarm3.GetComponent<Renderer>().material = off;
+    	alarm1.transform.GetChild(1).GetComponent<Renderer>().material = off;
+    	alarm2.transform.GetChild(1).GetComponent<Renderer>().material = off;
+    	alarm3.transform.GetChild(1).GetComponent<Renderer>().material = off;
     	nextAlarm = 1;
     }
 }
