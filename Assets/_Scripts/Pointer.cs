@@ -10,9 +10,13 @@ public class Pointer : MonoBehaviour
     public LayerMask m_EverythingMask = 0;
     public LayerMask m_InteractableMask = 0;
     public UnityAction<Vector3, GameObject> OnPointerUpdate = null;
+    public UnityAction<GameObject> OnPointerHover = null;
+    public UnityAction OffPointerHover = null;
 
     Transform m_CurrentOrigin = null;
     GameObject m_CurrentObject = null;
+
+    bool onHover = false;
 
     void Awake()
     {
@@ -51,7 +55,24 @@ public class Pointer : MonoBehaviour
 
         // Check hit
         if (hit.collider != null)
+        {
             endPosition = hit.point;
+            if (hit.transform.CompareTag("Key") && OnPointerHover != null && !onHover) // add more key tags here for on hover effects with pointer
+            {
+                OnPointerHover(hit.collider.gameObject);
+                onHover = true;
+            }
+            else if (!hit.transform.CompareTag("Key") && OnPointerHover != null && onHover)
+            {
+                OffPointerHover();
+                onHover = false;
+            }
+        }
+        else if (OnPointerHover != null && onHover)
+        {
+            OffPointerHover();
+            onHover = false;
+        }
 
         // Set position
         m_LineRenderer.SetPosition(0, m_CurrentOrigin.position);
