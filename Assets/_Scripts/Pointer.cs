@@ -22,6 +22,7 @@ public class Pointer : MonoBehaviour
     {
         PlayerEvents.OnControllerSource += UpdateOrigin;
         PlayerEvents.OnTouchpadDown += ProcessTouchpadDown;
+        PlayerEvents.OnTouchpadUp += ProcessTouchpadUp;
     }
 
     void Start()
@@ -33,6 +34,7 @@ public class Pointer : MonoBehaviour
     {
         PlayerEvents.OnControllerSource -= UpdateOrigin;
         PlayerEvents.OnTouchpadDown -= ProcessTouchpadDown;
+        PlayerEvents.OnTouchpadUp -= ProcessTouchpadUp;
     }
 
     void Update()
@@ -125,5 +127,14 @@ public class Pointer : MonoBehaviour
 
         Interactable interactable = m_CurrentObject.GetComponent<Interactable>();
         interactable.Pressed();
+    }
+
+    void ProcessTouchpadUp()
+    {
+        if (!m_CurrentObject)
+            return;
+
+        Interactable interactable = m_CurrentObject.GetComponent<Interactable>();
+        interactable.Released();
     }
 }

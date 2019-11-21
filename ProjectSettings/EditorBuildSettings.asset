@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/PointerTest.unity
     guid: bd15d447ae9afed4e86936e2f8c034b0
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/KeypadPointerTest.unity
     guid: eed82525bd50d364687e89f381f430b1
+  - enabled: 1
+    path: Assets/_Scenes/WireTest.unity
+    guid: 3f298c652c58a6046977e80df9868e39
   m_configObjects: {}

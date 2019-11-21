@@ -11,11 +11,26 @@ public class Interactable : MonoBehaviour
             GameObject GameManager = GameObject.Find("GameManager");
             GameManager.GetComponent<KeypadManager>().KeyPressed();
         }
+
+        if (transform.CompareTag("Cutter"))
+        {
+            GameObject GameManager = GameObject.Find("GameManager");
+            GameManager.GetComponent<WireManager>().PickUpCutter();
+        }
         /*
         MeshRenderer renderer = GetComponent<MeshRenderer>();
         bool flip = !renderer.enabled;
 
         renderer.enabled = flip;
         */
+    }
+
+    public void Released()
+    {
+        if (transform.CompareTag("Cutter"))
+        {
+            GameObject GameManager = GameObject.Find("GameManager");
+            GameManager.GetComponent<WireManager>().DropCutter();
+        }
     }
 }

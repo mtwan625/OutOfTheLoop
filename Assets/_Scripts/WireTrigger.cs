@@ -7,7 +7,8 @@ public class WireTrigger : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         // Debug.Log("Trigger detected");
-        if (Input.GetMouseButtonDown(0) && other.tag == "Cutter")
+        CutterAnimator animator = other.transform.parent.GetComponent<CutterAnimator>();
+        if (other.tag == "Cutter" && animator != null && animator.isAnimating)
         {
             Debug.Log("Cut detected");
 

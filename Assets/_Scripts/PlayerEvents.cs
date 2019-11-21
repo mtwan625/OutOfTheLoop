@@ -7,6 +7,8 @@ public class PlayerEvents : MonoBehaviour
 {
     public static UnityAction OnTouchpadUp = null;
     public static UnityAction OnTouchpadDown = null;
+    public static UnityAction OnTriggerDown = null;
+    public static UnityAction OnTriggerUp = null;
     public static UnityAction<OVRInput.Controller, GameObject> OnControllerSource = null;
 
     public GameObject m_RightAnchor;
@@ -62,7 +64,7 @@ public class PlayerEvents : MonoBehaviour
     void Input()
     {
         // Touchpad down
-        if(OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad))
         {
             if (OnTouchpadDown != null)
                 OnTouchpadDown();
@@ -73,6 +75,20 @@ public class PlayerEvents : MonoBehaviour
         {
             if (OnTouchpadUp != null)
                 OnTouchpadUp();
+        }
+
+        // Trigger down
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+        {
+            if (OnTriggerDown != null)
+                OnTriggerDown();
+        }
+
+        // Trigger up
+        if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger))
+        {
+            if (OnTriggerUp != null)
+                OnTriggerUp();
         }
     }
 
