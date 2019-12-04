@@ -7,6 +7,7 @@ TagManager:
   - Wire
   - Cutter
   - Key
+  - Pickup
   layers:
   - Default
   - TransparentFX

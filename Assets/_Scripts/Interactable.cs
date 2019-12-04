@@ -17,6 +17,11 @@ public class Interactable : MonoBehaviour
             GameObject GameManager = GameObject.Find("GameManager");
             GameManager.GetComponent<WireManager>().PickUpCutter();
         }
+
+        if (transform.CompareTag("Pickup"))
+        {
+            this.gameObject.GetComponent<Pickup>().held = true;
+        }
         /*
         MeshRenderer renderer = GetComponent<MeshRenderer>();
         bool flip = !renderer.enabled;
@@ -32,5 +37,12 @@ public class Interactable : MonoBehaviour
             GameObject GameManager = GameObject.Find("GameManager");
             GameManager.GetComponent<WireManager>().DropCutter();
         }
+
+        /*
+        if(transform.CompareTag("Pickup"))
+        {
+            this.gameObject.GetComponent<Pickup>().held = false;
+        }
+        */
     }
 }
