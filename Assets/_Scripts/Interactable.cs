@@ -38,11 +38,11 @@ public class Interactable : MonoBehaviour
             GameManager.GetComponent<WireManager>().DropCutter();
         }
 
-        /*
+        
         if(transform.CompareTag("Pickup"))
         {
             this.gameObject.GetComponent<Pickup>().held = false;
         }
-        */
+        
     }
 }

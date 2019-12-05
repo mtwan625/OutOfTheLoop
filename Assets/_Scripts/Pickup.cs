@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    public GameObject holder;
+    public Transform holder;
+    public GameObject pointer;
     public bool held = false;
 
-    public Transform start;
+    Vector3 startPosition;
+    Vector3 startForward;
 
-    private void Start()
+    LineRenderer line;
+
+    void Start()
     {
-        start = transform;
+        startPosition = transform.position;
+        startForward = transform.forward;
+
+        line = pointer.GetComponentInChildren<LineRenderer>();
+        holder.position = line.GetPosition(0);
     }
 
     // Update is called once per frame
@@ -19,19 +27,21 @@ public class Pickup : MonoBehaviour
     {
         if(held)
         {
-            if(holder != null)
+            holder.position = line.GetPosition(0) + (line.GetPosition(1) - line.GetPosition(0)).normalized;
+
+            if (holder != null)
             {
-                transform.position += (holder.transform.position - transform.position) / 10;
-                transform.forward += (holder.transform.forward - transform.forward) / 10;
+                transform.position += (holder.position - transform.position) / 10;
+                transform.forward += (holder.forward - transform.forward) / 10;
             }
         }
         else
         {
-            transform.position += (start.position - transform.position) / 10;
-            transform.forward += (start.forward - transform.forward) / 10;
+            transform.position += (startPosition - transform.position) / 10;
+            transform.forward += (startForward - transform.forward) / 10;
         }
 
-        Debug.Log(transform.position);
-        Debug.Log(transform.rotation);
+        // Debug.Log(transform.position);
+        // Debug.Log(transform.rotation);
     }
 }
