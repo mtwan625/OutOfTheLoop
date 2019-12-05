@@ -14,7 +14,7 @@ public class GenerateWire : MonoBehaviour
     Rigidbody hook;
 
     List<GameObject> wireSegments;
-    void Start()
+    void Awake()
     {
         anchorA = transform.Find("Anchor A").GetComponent<Rigidbody>();
         anchorB = transform.Find("Anchor B").GetComponent<Rigidbody>();

@@ -6,7 +6,7 @@ public class WireManager : MonoBehaviour
 {
     public int numberOfCorrectWires = 3;
     public GameObject cutter;
-    public float sensitivity = 2.0f;
+    public float sensitivity = 5.0f;
 
     public bool isHolding; // currently holding cutter
     public bool isCutting; // currently cutting
@@ -37,7 +37,6 @@ public class WireManager : MonoBehaviour
 
     void Update()
     {
-        // TODO: if isHolding, allow z-control with trackpad
         if (isHolding)
         {
             Vector2 move = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
@@ -72,13 +71,11 @@ public class WireManager : MonoBehaviour
 
     public void PickUpCutter()
     {
-        // TODO: Move "cutter" gameobject to hand
         isHolding = true;
     }
 
     public void DropCutter()
     {
-        // TODO: Drop "cutter"
         isHolding = false;
     }
 

@@ -199,9 +199,12 @@ GameObject:
   - component: {fileID: 7963813835809474337}
   - component: {fileID: 1924040480}
   - component: {fileID: 1924040481}
-  m_Layer: 0
+  - component: {fileID: 1158821284}
+  - component: {fileID: 1158821285}
+  - component: {fileID: 1158821286}
+  m_Layer: 8
   m_Name: Wire Cutter
-  m_TagString: Untagged
+  m_TagString: Cutter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,7 +218,7 @@ Transform:
   m_GameObject: {fileID: 2945345511435629580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
   m_Children:
   - {fileID: 4200760140900346800}
   - {fileID: 880616994527523924}
@@ -253,3 +256,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71797016b1337a04197a301e8c784d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAnimating: 0
+--- !u!114 &1158821284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2945345511435629580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072dbfa1361d7524194987c95078021a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1158821285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2945345511435629580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e2cdcc30d1109439cdf83ca7cbe0a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  pointer: {fileID: 0}
+  held: 0
+--- !u!65 &1158821286
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2945345511435629580}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.51, y: 1, z: 9.4}
+  m_Center: {x: 2.16, y: 0, z: -2.73}

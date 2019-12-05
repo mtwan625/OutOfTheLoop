@@ -16,7 +16,7 @@ public class CutterAnimator : MonoBehaviour
 
     void Update()
     {
-        if (wireManager.isCutting)
+        if (wireManager.isHolding && wireManager.isCutting)
         {
             animator.SetTrigger("Cut");
             wireManager.isCutting = false;

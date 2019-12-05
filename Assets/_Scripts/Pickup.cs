@@ -32,7 +32,7 @@ public class Pickup : MonoBehaviour
             if (holder != null)
             {
                 transform.position += (holder.position - transform.position) / 10;
-                transform.forward += (holder.forward - transform.forward) / 10;
+                transform.forward += ((line.GetPosition(1) - line.GetPosition(0)).normalized - transform.forward) / 10;
             }
         }
         else

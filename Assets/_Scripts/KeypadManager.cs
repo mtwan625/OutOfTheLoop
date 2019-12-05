@@ -22,10 +22,16 @@ public class KeypadManager : MonoBehaviour
 
     private bool isCompleted = false;
 
+    public GameObject wireDetector;
+    public GameObject wireCutter;
+
     void Awake()
     {
         delay_temp = delay;
         EnableKeyInteraction();
+
+        wireDetector.SetActive(false);
+        wireCutter.SetActive(false);
     }
 
     void OnDestroy()
@@ -113,7 +119,8 @@ public class KeypadManager : MonoBehaviour
             if (string.Compare(current_password, password) == 0)
             {
                 Debug.Log("Correct password!");
-                text.text += "\n COMPLETED";
+                wireDetector.SetActive(true);
+                wireCutter.SetActive(true);
                 isCompleted = true;
             }
             else
@@ -169,7 +176,10 @@ public class KeypadManager : MonoBehaviour
         KeypadInput input = key.GetComponent<KeypadInput>();
 
         input.selected = true;
-        current_password += input.character;
+        if (input.character == "D")
+            current_password = current_password.Remove(current_password.Length - 1);
+        else
+            current_password += input.character;
     }
     
     void EnableKeyInteraction()

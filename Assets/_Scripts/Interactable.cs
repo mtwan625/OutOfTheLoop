@@ -16,6 +16,8 @@ public class Interactable : MonoBehaviour
         {
             GameObject GameManager = GameObject.Find("GameManager");
             GameManager.GetComponent<WireManager>().PickUpCutter();
+
+            this.gameObject.GetComponent<Pickup>().held = true;
         }
 
         if (transform.CompareTag("Pickup"))
@@ -36,6 +38,8 @@ public class Interactable : MonoBehaviour
         {
             GameObject GameManager = GameObject.Find("GameManager");
             GameManager.GetComponent<WireManager>().DropCutter();
+
+            this.gameObject.GetComponent<Pickup>().held = false;
         }
 
         
